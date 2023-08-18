@@ -15,9 +15,7 @@
 rm -rf feeds.conf.default
 
 # Add a feed source
-echo 'src-git luci-app-adguardhome https://github.com/kenzok78/luci-app-adguardhome' >>feeds.conf.default
-echo 'src-git OpenClash https://github.com/vernesong/OpenClash' >>feeds.conf.default
-echo 'src-git luci-app-unblockneteasemusic https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic;master' >>feeds.conf.default
+echo 'src-git adguardhome https://github.com/xiaoxiao29/luci-app-adguardhome' >>feeds.conf.default
 echo 'src-git packages https://github.com/immortalwrt/packages;openwrt-23.05' >>feeds.conf.default
 echo 'src-git luci https://github.com/immortalwrt/luci;openwrt-23.05' >>feeds.conf.default
 echo 'src-git routing https://github.com/openwrt/routing.git' >>feeds.conf.default
