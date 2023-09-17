@@ -6,16 +6,14 @@
 # See /LICENSE for more information.
 #
 # https://github.com/P3TERX/Actions-OpenWrt
-# File name: diy-part1.sh
-# Description: OpenWrt DIY script part 1 (Before Update feeds)
+# File name: diy-part2.sh
+# Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-# Uncomment a feed source
-#sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
-rm -rf feeds.conf.default
+# Modify default IP
+sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generate
 
-# Add a feed source
-echo 'src-git packages https://github.com/CCA2878/immortalwrt-packages.git;openwrt-18.06' >>feeds.conf.default
-echo 'src-git luci https://github.com/CCA2878/immortalwrt-luci.git;openwrt-18.06-k5.4' >>feeds.conf.default
-echo 'src-git routing https://github.com/openwrt/routing.git' >>feeds.conf.default
-echo 'src-git telephony https://github.com/openwrt/telephony.git' >>feeds.conf.default
+sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
+
+# Add luci-theme-infinityfreedom
+git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom
